@@ -7,11 +7,11 @@ const config = require("./config/variables");
 const app = require("express")();
 
 app.use(cors({
-    origin: options.origin,
+    origin: config.origin,
     credentials: true
   }));
 
-  
+
 require("./config/db-connection")(config);
 require("./config/express")(app, config);
 require("./config/app")(app);
