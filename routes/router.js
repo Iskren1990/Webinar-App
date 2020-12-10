@@ -5,7 +5,7 @@ module.exports = (app) => {
 
     app.get("/", (req, res) => { 
         (req, res ,next) => { console.log(req); next()},
-        res.sendFile("dist/Events/index.html", (err) => {res.end(); console.log(err)});
+        res.sendFile("dist/Events/index.html", (err) => {res.json(err);});
     });
 
     app.post("/api/users/register", loggedUserStop, loginRegForm, register.post);
