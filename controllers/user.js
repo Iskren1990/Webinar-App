@@ -11,7 +11,7 @@ const register = {
             const suc = await User.create({ firstName, lastName, email, password, profilePic, position });
             const token = createJWT({ id: suc._id, email, isLogged: true });
             res.cookie("uid", token);
-            res.status(201).send({ id: suc._id, email, isLogged: true, firstName, lastName, profilePic, position });
+            res.status(201).json({ id: suc._id, email, isLogged: true, firstName, lastName, profilePic, position });
         } catch (err) {
             res.locals.error.push(errorMsg.emailUsed);
             res.status(400).json({ message: res.locals.error, err })
