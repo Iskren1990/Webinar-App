@@ -2,13 +2,13 @@ const { loggedUserStop, guestUserStop, loginRegForm, createEditForm } = require(
 const { register, login, logout, profile, events, create, edit, deleted, comment } = require("../controllers/index");
 const path = require("path");
 
-const filesPath = path.resolve(__dirname, "./public/dist/Events");
+const filesPath = path.resolve(__dirname, "../public/dist/Events");
 
 module.exports = (app) => {
 
     app.get("/", (req, res) => { 
         (req, res ,next) => { console.log(req, filesPath); next()},
-        res.sendFile("index.html",{root: filesPath}, (err) => {res.json(err, filesPath);});
+        res.sendFile("index.html",{root: filesPath}, (err) => {res.status(424).json(err, filesPath);});
     });
 
     app.post("/api/users/register", loggedUserStop, loginRegForm, register.post);
