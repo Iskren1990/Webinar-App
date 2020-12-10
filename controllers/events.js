@@ -17,7 +17,7 @@ const events = {
             res.status(200).json(events);
         } catch (err) {
             res.locals.error.push(errorMsg.serverErr);
-            res.status().json({ message: res.locals.error, err });
+            res.status(503).json({ message: res.locals.error, err });
         }
     }
 }
