@@ -1,11 +1,14 @@
 const { loggedUserStop, guestUserStop, loginRegForm, createEditForm } = require("../middleware/index");
 const { register, login, logout, profile, events, create, edit, deleted, comment } = require("../controllers/index");
+const path = require("path");
+
+const filesPath = path.resolve(__dirname, "./public/dist/Events");
 
 module.exports = (app) => {
 
     app.get("/", (req, res) => { 
-        (req, res ,next) => { console.log(req); next()},
-        res.sendFile("../public/dist/Events/index.html", (err) => {res.json(err);});
+        (req, res ,next) => { console.log(req, filesPath); next()},
+        res.sendFile("index.html",{root: filesPath}, (err) => {res.json(err);});
     });
 
     app.post("/api/users/register", loggedUserStop, loginRegForm, register.post);
