@@ -6,8 +6,7 @@ const filesPath = path.resolve(__dirname, "../public/dist/Events/");
 
 module.exports = (app) => {
 
-    app.get("/", (req, res) => { 
-        (req, res ,next) => { console.log(req, filesPath); next()},
+    app.get("/", (req, res) => {
         res.sendFile(`${filesPath}/index.html`);
     });
 
@@ -26,5 +25,5 @@ module.exports = (app) => {
     app.put("/api/events/comments", comment.put);
     app.delete("/api/events/comments", comment.delete);
 
-    app.all("*", (req, res) => {console.log(req.url),res.status(404).json({message: "Page not Found"})});
+    app.all("*", (req, res) => { console.log(req.url), res.status(404).json({ message: "Page not Found" }) });
 }
