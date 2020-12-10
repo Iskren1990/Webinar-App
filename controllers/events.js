@@ -16,6 +16,7 @@ const events = {
             const events = await Events.find(mongoQuery[key](value));
             res.status(200).json(events);
         } catch (err) {
+            console.log(err)
             res.locals.error.push(errorMsg.serverErr);
             res.status(503).json({ message: res.locals.error, err });
         }
