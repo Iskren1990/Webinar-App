@@ -1,10 +1,17 @@
 require("dotenv").config({ path: "./config/.env" });
 require("./utils/index").time();
+const cors = require("cors");
 
 const { globalErrorHandler } = require("./utils/index");
 const config = require("./config/variables");
 const app = require("express")();
 
+app.use(cors({
+    origin: options.origin,
+    credentials: true
+  }));
+
+  
 require("./config/db-connection")(config);
 require("./config/express")(app, config);
 require("./config/app")(app);
