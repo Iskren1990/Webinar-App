@@ -8,7 +8,7 @@ module.exports = (app) => {
 
     app.get("/", (req, res) => { 
         (req, res ,next) => { console.log(req, filesPath); next()},
-        res.render(`${filesPath}index.html`});
+        res.render(`${filesPath}index.html`);
     });
 
     app.post("/api/users/register", loggedUserStop, loginRegForm, register.post);
