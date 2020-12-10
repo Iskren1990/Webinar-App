@@ -35,6 +35,7 @@ const login = {
             res.locals.error.push(errorMsg.wrongCred);
             res.status(400).json({ message: [...res.locals.error], err });
         }
+        console.log("Hi from header", res)
     }
 }
 
