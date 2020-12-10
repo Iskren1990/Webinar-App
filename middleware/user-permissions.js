@@ -23,6 +23,7 @@ function loggedUserStop(req, res, next) {
 
 function userStatus(req, res, next) {
     const status = req.cookies.uid;
+    console.log(req.url)
     if (status === undefined) {
         req.user = { isLogged: false }
     } else {
