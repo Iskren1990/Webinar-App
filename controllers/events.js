@@ -1,15 +1,15 @@
 const { Events } = require("../models/index");
 const { errorMsg } = require("../config/proj-props");
 
-const mongoQuery = {
-    eventCode: function (v) { return { $and: [{ eventCode: { $regex: v, $options: 'i' } }, { access: "Public" }] } },
-    access: function (v) { return { access: "Public" } },
-    owner: function (v) { return { owner: req.user.id.toString() } },
-    chosen: function (v) { return { _id: v } },
-}
-
 const events = {
     get: async function (req, res, next) {
+        const mongoQuery = {
+            eventCode: function (v) { return { $and: [{ eventCode: { $regex: v, $options: 'i' } }, { access: "Public" }] } },
+            access: function (v) { return { access: "Public" } },
+            owner: function (v) { return { owner: req.user.id.toString() } },
+            chosen: function (v) { return { _id: v } },
+        }
+
         const key = Object.keys(req.query)[0] || "access";
         const value = req.query[key] || "Public";
         try {
