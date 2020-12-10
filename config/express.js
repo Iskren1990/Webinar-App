@@ -9,10 +9,7 @@ function expressConf(app, options) {
   app.use(express.json());
   app.use(CP());
   console.log(options.origin)
-  app.use("*", cors({
-    origin: options.origin,
-    credentials: true
-  }));
+  app.use(cors());
 
   app.use(express.static("public"));
 }
