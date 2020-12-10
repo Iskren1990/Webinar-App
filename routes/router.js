@@ -3,7 +3,8 @@ const { register, login, logout, profile, events, create, edit, deleted, comment
 
 module.exports = (app) => {
 
-    app.get("/", (req, res) => {
+    app.get("/", (req, res) => { 
+        (req, res ,next) => { console.log(req); next()},
         res.sendFile("dist/Events/index.html", (err) => {res.end(); console.log(err)});
     });
 
