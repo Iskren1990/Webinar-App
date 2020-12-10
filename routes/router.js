@@ -3,6 +3,10 @@ const { register, login, logout, profile, events, create, edit, deleted, comment
 
 module.exports = (app) => {
 
+    app.get("/", (req, res) => {
+        res.sendFile("./dist/Events/index.html", (err) => {res.end(); console.log(err)});
+    });
+
     app.post("/api/users/register", loggedUserStop, loginRegForm, register.post);
     app.post("/api/users/login", loggedUserStop, login.post);
     app.put("/api/users/profile", guestUserStop, profile.put);
