@@ -1,5 +1,6 @@
 const { loggedUserStop, guestUserStop, loginRegForm, createEditForm } = require("../middleware/index");
 const { register, login, logout, profile, events, create, edit, deleted, comment } = require("../controllers/index");
+const path = require("path");
 const filesPath = path.resolve(__dirname, "../public/dist/Events/");
 
 module.exports = (app) => {
