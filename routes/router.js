@@ -19,6 +19,6 @@ module.exports = (app) => {
     app.post("/api/events/comments", comment.post);
     app.put("/api/events/comments", comment.put);
     app.delete("/api/events/comments", comment.delete);
-    // serve
+    // serve main index
     app.get("*", (req, res) => res.sendFile(`${filesPath}/index.html`));
 }
