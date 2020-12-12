@@ -8,7 +8,7 @@ function guestUserStop(req, res, next) {
         return;
     }
 
-    next()
+    next();
 }
 
 function loggedUserStop(req, res, next) {
@@ -23,12 +23,11 @@ function loggedUserStop(req, res, next) {
 
 function userStatus(req, res, next) {
     const status = req.cookies.uid;
-    console.log(req.url)
     if (status === undefined) {
-        req.user = { isLogged: false }
+        req.user = { isLogged: false };
     } else {
         req.user = jwt.verify(status, key, (err, suc) => {
-            if (err) return { isLogged: false }
+            if (err) return { isLogged: false };
 			suc.isLogged = true;
             return suc;
         });

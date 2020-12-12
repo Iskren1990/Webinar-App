@@ -11,15 +11,10 @@ function loginRegForm(req, res, next) {
     const nameRegex = /^[A-Z][a-z-]*/;
     const urlRegex = /^[http:// | https://]/;
     const positions = [
-        "Trainer",
-        "Lecturer",
-        "Executive",
-        "Event Manager",
-        "Team Lead",
-        "Marketing Manager",
-        "Other",
-        ""
-    ]
+        "Trainer", "Lecturer", "Executive",
+        "Event Manager", "Team Lead",
+        "Marketing Manager", "Other", ""
+    ];
 
     if (emailRegex.test(email) === false || regex.test(password) === false) {
         res.locals.error.push(errors.wrongEmail);
@@ -49,7 +44,6 @@ function loginRegForm(req, res, next) {
 
 function createEditForm(req, res, next) {
 
-    console.log(req.body)
     req.body = objTrimmer(req.body);
     const { eventName, eventCode, startDate, endDate, eventDescription, eventImage, access } = req.body;
     const nameRegex = /[A-Za-z0-9 ]{1,7}/;

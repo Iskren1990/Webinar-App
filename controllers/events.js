@@ -1,24 +1,36 @@
 const { Events } = require("../models/index");
 const { errorMsg } = require("../config/proj-props");
 
+// To Do
+// separate socket requests from http one
+
 const events = {
     get: async function (req, res, next) {
+
         const mongoQuery = {
             eventCode: function (v) { return { $and: [{ eventCode: { $regex: v, $options: 'i' } }, { access: "Public" }] } },
             access: function (v) { return { access: "Public" } },
-            owner: function (v) { return { owner: req.user.id.toString() } },
+            owner: function (v) { return { owner: String(req.user.id) } },
             chosen: function (v) { return { _id: v } },
-        }
+        };
 
         const key = Object.keys(req.query)[0] || "access";
         const value = req.query[key] || "Public";
+
         try {
             const events = await Events.find(mongoQuery[key](value));
             res.status(200).json(events);
         } catch (err) {
-            console.log(err)
             res.locals.error.push(errorMsg.serverErr);
-            res.status(503).json({ message: res.locals.error, err });
+            res.status(500).json({ message: res.locals.error, err });
+        }
+    },
+    getOne: async function(id) {
+        try {
+            const event = await Events.findById(id);
+            return event;
+        } catch (err) {
+            return "not found";
         }
     }
 }
@@ -43,7 +55,22 @@ const edit = {
             res.status(200).json(edited);
         } catch (err) {
             ree = res.locals.error.push(errorMsg.general);
-            res.status(424).json({message: res.locals.error, err});
+            res.status(424).json({ message: res.locals.error, err });
+        }
+    },
+    updateOne: async function (id, participantId) {
+        try {
+            const event = await Events.findByIdAndUpdate(id, { $addToSet: { participants: participantId} });
+            return event;
+        } catch (err) {
+            return "not found";
+        }
+    },
+    deleteOne: async function (eventId, userId) {
+        try {
+            const event = await Events.findByIdAndUpdate(id, { $pull: { participants: participantId} });
+        } catch (err) {
+            console.log("not found", err);
         }
     }
 }

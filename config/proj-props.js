@@ -1,4 +1,5 @@
 module.exports = {
+        // for legacy purpose
     titles: {
         "": "Home Page",
         "home": "Home Page",
@@ -26,6 +27,7 @@ module.exports = {
         wrongUrl: "Image url is required and should point to actual image",
         serverErr: "It’s not you. It’s us. Give it another try, please.",
     },
+
     views: {
         "/": "home",
         "/home": "home",
