@@ -788,8 +788,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    apiUrl: "http://localhost:3000/api",
-    socketUrl: "http://localhost:3000"
+    apiUrl: "https://dodo-hosting.herokuapp.com/api",
+    socketUrl: "https://dodo-hosting.herokuapp.com"
 };
 /*
  * For easier debugging in development mode, you can import the following file
