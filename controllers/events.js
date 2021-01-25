@@ -1,9 +1,6 @@
 const { Events } = require("../models/index");
 const { errorMsg } = require("../config/proj-props");
 
-// To Do
-// separate socket requests from http one
-
 const events = {
     get: async function (req, res, next) {
 
@@ -22,15 +19,16 @@ const events = {
             res.status(200).json(events);
         } catch (err) {
             res.locals.error.push(errorMsg.serverErr);
-            res.status(500).json({ message: res.locals.error, err });
+            res.status(500).json({ message: [res.locals.error, err] });
         }
     },
+    // Socket
     getOne: async function(id) {
         try {
             const event = await Events.findById(id);
             return event;
         } catch (err) {
-            return "not found";
+            return errorMsg.eventErr.eventNotFound;
         }
     }
 }
@@ -41,8 +39,8 @@ const create = {
             const created = await Events.create({ ...req.body, owner: req.user.id });
             res.status(201).json(created);
         } catch (err) {
-            res.locals.error.push(errorMsg.notUnique("Course name or code"));
-            res.status(424).json({ message: "Event was nt created", err });
+            res.locals.error.push(errorMsg.notUnique("Event name or code"));
+            res.status(424).json({ message: [errorMsg.eventErr.eventNotCreated, ...err] });
         }
     }
 }
@@ -55,22 +53,23 @@ const edit = {
             res.status(200).json(edited);
         } catch (err) {
             ree = res.locals.error.push(errorMsg.general);
-            res.status(424).json({ message: res.locals.error, err });
+            res.status(424).json({ message: [res.locals.error, ...err] });
         }
     },
+    // Socket
     updateOne: async function (id, participantId) {
         try {
             const event = await Events.findByIdAndUpdate(id, { $addToSet: { participants: participantId} });
             return event;
         } catch (err) {
-            return "not found";
+            return errorMsg.eventErr.eventNotFound;
         }
     },
     deleteOne: async function (eventId, userId) {
         try {
-            const event = await Events.findByIdAndUpdate(id, { $pull: { participants: participantId} });
+            await Events.findByIdAndUpdate(id, { $pull: { participants: participantId} });
         } catch (err) {
-            console.log("not found", err);
+            console.log(errorMsg.eventErr.eventNotFound, err);
         }
     }
 }
@@ -82,11 +81,10 @@ const deleted = {
             const deleted = await Events.findOneAndDelete({ _id: eventId });
             res.status(200).json(deleted);
         } catch (err) {
-            res.status(304).json({ message: "Delete Error", err });
+            res.status(304).json({ message: [errorMsg.eventErr.eventNotEdited, ...err] });
         }
     }
 }
-
 
 module.exports = {
     events,

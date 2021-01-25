@@ -37,7 +37,12 @@ const commentsSchema = new mongoose.Schema({
     date: {
         type: String,
         default: Date.now,
+    },
+    expireAt: {
+        type: Date,
+        required: true
     }
 });
 
+commentsSchema.index({ expireAt: 1 }, { expireAfterSeconds : 0 });
 module.exports = mongoose.model("Comments", commentsSchema);

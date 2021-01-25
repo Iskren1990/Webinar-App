@@ -1,4 +1,4 @@
-const errors = require("../config/proj-props").errorMsg;
+const errorMsg = require("../config/proj-props");
 const { objTrimmer } = require("../utils/index");
 
 function loginRegForm(req, res, next) {
@@ -17,17 +17,17 @@ function loginRegForm(req, res, next) {
     ];
 
     if (emailRegex.test(email) === false || regex.test(password) === false) {
-        res.locals.error.push(errors.wrongEmail);
-        res.locals.error.push(errors.wrongLength("Username and Password", 3));
-        res.locals.error.push(errors.wrongChar);
+        res.locals.error.push(errorMsg.userErr.wrongEmail);
+        res.locals.error.push(errorMsg.inputErr.wrongLength("Username and Password", 3));
+        res.locals.error.push(errorMsg.inputErr.wrongChar);
     }
 
     if (nameRegex.test(firstName) === false || nameRegex.test(lastName) === false) {
-        res.locals.error.push(errors.wrongUname);
+        res.locals.error.push(errorMsg.userErr.wrongUname);
     }
 
     if (urlRegex.test(profilePic) === false && profilePic !== "") {
-        res.locals.error.push(errors.wrongUrl);
+        res.locals.error.push(errorMsg.inputErr.wrongUrl);
     }
 
     if (positions.includes(position) === false) {

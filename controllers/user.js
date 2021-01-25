@@ -14,7 +14,7 @@ const register = {
             res.cookie("uid", token);
             res.status(201).json({ id: suc._id, email, isLogged: true, firstName, lastName, profilePic, position });
         } catch (err) {
-            res.locals.error.push(errorMsg.emailUsed);
+            res.locals.error.push(errorMsg.userErr.emailUsed);
             res.status(400).json({ message: res.locals.error, err });
         }
     }
@@ -33,7 +33,7 @@ const login = {
             res.cookie("uid", token);
             res.status(201).json({ firstName, lastName, email, id, position, profilePic });
         } catch (err) {
-            res.locals.error.push(errorMsg.wrongCred);
+            res.locals.error.push(errorMsg.userErr.wrongCred);
             res.status(400).json({ message: [...res.locals.error], err });
         }
     }
@@ -56,7 +56,7 @@ const profile = {
             res.cookie("uid", token);
             res.status(200).json({ firstName, lastName, email, id, position, profilePic });
         } catch (err) {
-            res.locals.error.push(errorMsg.wrongCred);
+            res.locals.error.push(errorMsg.userErr.wrongCred);
             res.status(404).json({ message: [...res.locals.error], err });
         }
     }

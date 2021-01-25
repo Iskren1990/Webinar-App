@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
 const { key } = require("../config/variables");
+const { errorMsg } = require("../config/proj-props");
 
 function guestUserStop(req, res, next) {
-
     if (req.user.isLogged === false) {
-        res.status(401).json({message: "You need to be logged in."});
+        res.status(401).json({ message: [errorMsg.userErr.notLogged] });
         return;
     }
 
@@ -27,12 +27,15 @@ function userStatus(req, res, next) {
         req.user = { isLogged: false };
     } else {
         req.user = jwt.verify(status, key, (err, suc) => {
-            if (err) return { isLogged: false };
-			suc.isLogged = true;
+            if (err) {
+                res.clearCookie("uid");
+                return { isLogged: false };
+            };
+
+            suc.isLogged = true;
             return suc;
         });
     }
-
     next();
 }
 

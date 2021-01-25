@@ -16,19 +16,20 @@ const sort = {
 }
 
 const comment = {
-    post: async function (req, res, next) {
+    post: async function (req, res) {
         try {
             const eventComment = await Comments.create(req.body);
             res.status(201).json(eventComment);
         } catch (err) {
-            res.status(424).json({ message: "Comment was not added", err });
+            res.status(424).json({ message: errorMsg.commentErr.commentNotModified, err });
         }
     },
+    // Socket 
     postSocketComment: async function (comment) {
         try {
             return await Comments.create(comment);
         } catch (err) {
-            return {err, dbRes, message: "Request unavailable"};
+            return {err, dbRes, message: errorMsg.commentErr.commentNotCreated };
         }
     },
     get: async function (req, res, next) {
@@ -48,6 +49,7 @@ const comment = {
             next(err)
         }
     },
+    // Socket 
     getAllForOne: async function (eventId) {
         try {
             const allComments = await Comments.find({ eventId });
@@ -60,7 +62,7 @@ const comment = {
 
             return commentsSorted;
         } catch (err) {
-            return "no comments found";
+            return errorMsg.commentErr.noCommentsFound;
         }
     },
     put: async function (req, res, next) {
@@ -70,13 +72,13 @@ const comment = {
             const updateComment = await Comments.findOneAndUpdate({ _id: value }, mongoQuery[key](req.body));
             res.status(200).json(updateComment);
         } catch (err) {
-            res.status(424).json({ message: "Failed to modify comment.", err });
+            res.status(424).json({ message: errorMsg.commentErr.failedToModify, err });
         }
     },
+    // Socket 
     addReply: async function (id, reply) {
         try {
-            const dbRes = await Comments.findByIdAndUpdate(id,
-                {
+            const dbRes = await Comments.findByIdAndUpdate(id, {
                     $push: {
                         replies: {
                             $each: [reply],
@@ -86,7 +88,7 @@ const comment = {
                 }, { returnOriginal: false });
             return dbRes;
         } catch (err) {
-            return {err, dbRes, message: "Request unavailable"};
+            return {err, dbRes, message: errorMsg.replyErr.replyNotCreated};
         }
     },
     delete: async function (req, res, next) {
@@ -97,20 +99,19 @@ const comment = {
             const deleteComment = await Comments.findOneAndDelete({ _id: value });
             res.status(200).json(deleteComment);
         } catch (err) {
-            res.status(424).json({ error: "Failed to delete", err });
+            res.status(424).json({ error: errorMsg.commentErr.failedToDelete, err });
         }
     },
+    // Socket 
     deleteOne: async function (commentId) {
         try {
             const deleteComment = await Comments.findOneAndDelete({ _id: commentId });
             return deleteComment;
         } catch (err) {
-            return {err, deleteComment, message: "Request unavailable"};
+            return {err, deleteComment, message: errorMsg.commentErr.failedToDelete};
         }
     }
 }
-
-
 
 module.exports = {
     comment
