@@ -35,7 +35,12 @@ const eventSchema = new mongoose.Schema({
         type: "ObjectId",
         required: true,
         ref: "User",
+    },
+    expireAt: {
+        type: Date,
+        required: true
     }
 });
 
+eventSchema.index({ expireAt: 1 }, { expireAfterSeconds : 0 });
 module.exports = mongoose.model("Events", eventSchema);
