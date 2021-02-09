@@ -131,6 +131,6 @@ Open a issue with request.
 
 
 
-[home-events-screenshot] : images/screenshot.png
-[event-page-screenshot] : images/screenshot1.png
-[share-screen-screenshot] : images/screenshot2.png
+[home-events-screenshot] (images/screenshot.png)
+[event-page-screenshot] (images/screenshot1.png)
+[share-screen-screenshot] (images/screenshot2.png)
