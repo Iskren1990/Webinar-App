@@ -2,9 +2,11 @@
 
 
 
-## About The Project
+
 
 [![Alt][home-events-screenshot]](https://dodo-hosting.herokuapp.com/)
+
+## About The Project
 
    Simple solution for your web-hosting needs, the app gives you the power to host and moderate, webinars like, events based on your needs.
 
@@ -61,13 +63,13 @@ By default the project uses port 3000.
 
  - to check if it is free for use:
 
-   = In Windows open cmd and paste:
+   - In Windows open cmd and paste:
 
 
    :hash: `` netstat -aon | find '3000' ``
 	
 
-   = In Linux paste in the terminal:
+   - In Linux paste in the terminal:
 
 
    :hash: ```sh sudo netstat -anp | grep ':3000 ' ```
