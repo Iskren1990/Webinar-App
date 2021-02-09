@@ -1,6 +1,6 @@
 ## About The Project
 
-[[home-events-screenshot]](https://dodo-hosting.herokuapp.com/)
+[![home-events-screenshot]](https://dodo-hosting.herokuapp.com/)
 
    Simple solution for your web-hosting needs, the app gives you the power to host and moderate, webinars like, events based on your needs. 
 
@@ -94,9 +94,9 @@ After succesfull start you will see the URL on which you can access the app.
 
 ## Usage
 
-[[event-page-screenshot]](https://dodo-hosting.herokuapp.com/)
+[![event-page-screenshot]](https://dodo-hosting.herokuapp.com/)
 
-[[share-screen-screenshot]](https://dodo-hosting.herokuapp.com/)
+[![share-screen-screenshot]](https://dodo-hosting.herokuapp.com/)
 
 
 ## Roadmap
