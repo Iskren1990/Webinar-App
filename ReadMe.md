@@ -40,16 +40,16 @@ To get a local copy up and running follow these simple example steps.
  :one: Download the app or clone the repo:
 
   
-:hash:  `` git clone https://github.com/Iskren1990/event-hosting.git ``
+   :hash:  `` git clone https://github.com/Iskren1990/event-hosting.git ``
    
 
  :two: Install NPM packages
 
 In the root folder run: 
 
-	```sh
-:hash: npm run prod-install 
-	```
+	
+   :hash: `` npm run prod-install ``
+	
 
 By default the project uses port 3000.
 
@@ -57,15 +57,15 @@ By default the project uses port 3000.
 
    = In Windows open cmd and paste:
 
-	```sh
-:hash: netstat -aon | find '3000'
-	```
+
+   :hash: `` netstat -aon | find '3000' ``
+	
 
    = In Linux paste in the terminal:
 
-	```sh
-:hash: sudo netstat -anp | grep ':3000 '
-	```
+
+   :hash: ```sh sudo netstat -anp | grep ':3000 ' ```
+	
 
 If the port is in use by other software you can change it by:
 
@@ -76,20 +76,20 @@ If the port is in use by other software you can change it by:
 
 To start the server run:
 
-	```sh
-:hash: npm run start-dev
-	```
+	
+   :hash: `` npm run start-dev ``
+
 
 ## Getting Started
 
 
 To start the server run:
 
-	```sh
-:hash: npm run start-dev
-	```
 
-After succesfull start you will see the URL on which you can access the app.
+   :hash: `` npm run start-dev ``
+
+
+After successful start you will see the URL on which you can access the app.
 
 
 ## Usage
