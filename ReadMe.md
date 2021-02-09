@@ -1,10 +1,14 @@
-# About The Project
+<h1 align="center" href="https://dodo-hosting.herokuapp.com">DoDo</h1>
+
+
+
+## About The Project
 
 [![Alt][home-events-screenshot]](https://dodo-hosting.herokuapp.com/)
 
    Simple solution for your web-hosting needs, the app gives you the power to host and moderate, webinars like, events based on your needs.
 
-####   Currently hosted on * [Heroku](https://dodo-hosting.herokuapp.com/) 
+#### Currently hosted on [Heroku](https://dodo-hosting.herokuapp.com/) 
 
 
 ### Built With
