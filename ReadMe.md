@@ -94,9 +94,9 @@ After succesfull start you will see the URL on which you can access the app.
 
 ## Usage
 
-[![event-page-screenshot]](https://dodo-hosting.herokuapp.com/)
+[![Alt][event-page-screenshot]](https://dodo-hosting.herokuapp.com/)
 
-[![share-screen-screenshot]](https://dodo-hosting.herokuapp.com/)
+[![Alt][share-screen-screenshot]](https://dodo-hosting.herokuapp.com/)
 
 
 ## Roadmap
@@ -133,4 +133,4 @@ Open a issue with request.
 
 [home-events-screenshot] (images/screenshot.png)
 [event-page-screenshot] (images/screenshot1.png)
-[share-screen-screenshot] (images/screenshot2.png)
+![share-screen-screenshot] (images/screenshot2.png)
