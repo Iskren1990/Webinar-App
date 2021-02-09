@@ -39,9 +39,9 @@ To get a local copy up and running follow these simple example steps.
 
  :one: Download the app or clone the repo:
 
-   ```sh
-:hash: git clone https://github.com/Iskren1990/event-hosting.git
-   ```
+  
+:hash:  `` git clone https://github.com/Iskren1990/event-hosting.git ``
+   
 
  :two: Install NPM packages
 
