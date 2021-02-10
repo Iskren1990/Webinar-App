@@ -1,0 +1,13 @@
+<div class="movable" cdkDrag>
+    
+    <video #videoElement poster="/assets/images.png" autoplay playsinline></video>
+
+    <app-video-controls class="hidden" [videoElement]="videoElement" [isOwner]="isOwner">
+    </app-video-controls>
+    
+
+    <p [ngClass]='[videoElement.streamPaused?"paused":"invisible"]'>Presenting has not started</p>
+    <p [ngClass]='[videoElement.streamMuted?"paused":"invisible"]'>Presenting has muted himself</p>
+    <p *ngIf="isOwner" [ngClass]='[videoElement.paused?"paused":"invisible"]'>Video stream is paused</p>
+    <p *ngIf="isOwner" [ngClass]='[videoElement.muted?"paused":"invisible"]'>You are on mute</p>
+</div>

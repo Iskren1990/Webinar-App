@@ -18,7 +18,6 @@ require("./routes/router")(app);
 
 socket(io);
 
-
 app.use(globalErrorHandler);
 
 server.listen(config.PORT, (err) => {
@@ -26,6 +25,6 @@ server.listen(config.PORT, (err) => {
     if (!err) setTimeout(() => {
         console.info("Server is running.");
         console.info("Open app on:");
-        console.info("\033[35mhttps://dodo-hosting.herokuapp.com:" + config.PORT);
+        console.info("\033[35mhttp://localhost:" + config.PORT);
     }, 800);
 });

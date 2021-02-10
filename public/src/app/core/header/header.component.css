@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+.search {
+    max-width: 20vw;
+}
+
+.display {
+    display: inherit;
+}
+
+.font {
+    font-family: 'Dancing Script', cursive;
+    font-size: larger;
+    padding-right: 2rem;
+}
+
+.show li, .nav-list {
+    align-self: center;
+    justify-content: space-between;
+}
+
+.nav-user-name {
+    flex-basis: 100%;
+    text-align: center;
+}

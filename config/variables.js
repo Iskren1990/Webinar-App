@@ -8,7 +8,7 @@ module.exports = {
     dbOpt: { useUnifiedTopology: true,  useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false },
     uri: (conf) => `mongodb+srv://${conf.dbuser}:${conf.dbpass}@cluster0.4dqi4.mongodb.net/${conf.dbname}?retryWrites=true&w=majority`,
     cors: {
-        origin: ['http://localhost:5555', 'http://localhost:4200', 'https://dodo-hosting.herokuapp.com', 'http://dodo-hosting.herokuapp.com'],
+        origin: /http(s)?\:\/\/(localhost|dodo\-hosting|events\-app-prod)(\.herokuapp\.com)?(:4200)?/,
         credentials: true
     }
 },
@@ -21,7 +21,7 @@ development: {
     dbOpt: { useUnifiedTopology: true,  useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false },
     uri: (conf) => `mongodb+srv://${conf.dbuser}:${conf.dbpass}@cluster0.4dqi4.mongodb.net/${conf.dbname}?retryWrites=true&w=majority`,
     cors: {
-        origin: ['http://localhost:5555', 'http://localhost:4200', 'https://dodo-hosting.herokuapp.com', 'http://dodo-hosting.herokuapp.com'],
+        origin: /http(s)?\:\/\/(localhost|dodo\-hosting|events\-app-prod)(\.herokuapp\.com)?(:4200)?/, 
         credentials: true
     }
 }

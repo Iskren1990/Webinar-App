@@ -2,10 +2,10 @@ const { loggedUserStop, guestUserStop, loginRegForm, createEditForm } = require(
 const { register, login, logout, profile, events, create, edit, deleted, comment } = require("../controllers/index");
 const path = require("path");
 
-const filesPath = path.resolve(__dirname, "../public/dist/Events");
+const filesPath = path.resolve(__dirname, "../public/dist/");
 
 module.exports = (app) => {
-
+ 
     app.post("/api/users/register", loggedUserStop, loginRegForm, register.post);
     app.post("/api/users/login", loggedUserStop, login.post);
     app.put("/api/users/profile", guestUserStop, profile.put);
@@ -21,5 +21,5 @@ module.exports = (app) => {
     app.put("/api/events/comments", comment.put);
     app.delete("/api/events/comments", comment.delete);
     // serve
-    app.get("*", (req, res) => res.sendFile(`${filesPath}/index.html`));
+    app.all("*", (req, res) => res.sendFile(`${filesPath}/index.html`));
 }
