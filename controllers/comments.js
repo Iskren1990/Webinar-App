@@ -29,7 +29,7 @@ const comment = {
         try {
             return await Comments.create(comment);
         } catch (err) {
-            return {err, dbRes, message: errorMsg.commentErr.commentNotCreated };
+            return {err, message: errorMsg.commentErr.commentNotCreated };
         }
     },
     get: async function (req, res, next) {

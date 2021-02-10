@@ -53,23 +53,27 @@ function socket(io) {
         //======  Comments Logic 
 
         user.on("comment", async (comme) => {
-            const bdRes = await comment.postSocketComment(comme);
-            io.to(room[eventId].eventId).emit("message", bdRes);
+            const dbRes = await comment.postSocketComment(comme);
+            io.to(room[eventId].eventId).emit("message", dbRes);
         });
 
         user.on("reply", async ({ commentId, reply }) => {
             const dbRes = await comment.addReply(commentId, reply);
             io.to(room[eventId].eventId).emit("reply", dbRes);
+            // io.to(room[eventId].eventId).emit("reply", { commentId, reply }); FIX in case deRes is null
         });
 
         user.on("delete", async ({ commentId }) => {
             const dbRes = await comment.deleteOne(commentId);
             io.to(room[eventId].eventId).emit("delete", dbRes);
+            // io.to(room[eventId].eventId).emit("delete", { commentId });  FIX in case deRes is null
+
         });
 
         user.on('disconnect', (data) => {
             if (room[eventId].owner === user.id) {
                 room[eventId].owner = undefined;
+                user.to(room[eventId].eventId).emit("stop-media");
             }
         });
     });

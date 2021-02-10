@@ -1,0 +1,39 @@
+.movable {
+    position: absolute;
+    z-index: 10;
+    right: 5%;
+    display: inline-grid;
+    box-shadow: 10px 10px 15px rgb(65, 62, 62);
+} 
+
+video {
+    all:unset;
+    max-width: 15em;
+}
+
+.movable .hidden{
+    display: none;
+}
+
+.movable:hover .hidden{
+    display: block;
+}
+
+.movable .paused {
+    all: unset;
+    display: flex;
+    position: absolute;
+    z-index: 20;
+    justify-content: center;
+    align-items: center;
+    bottom: 0em;
+    cursor: default;
+    width: 100%;
+    height: 2em;
+    background-color: rgba(255, 255, 255, 0.5);
+    color:rgb(71, 35, 102);
+}
+
+.movable:hover .paused, .invisible {
+    display: none;
+}

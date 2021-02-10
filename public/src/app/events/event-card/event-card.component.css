@@ -1,0 +1,12 @@
+:root {
+    display: inherit;
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text-muted {
+    margin-left: 5px;
+}

@@ -1,0 +1,12 @@
+.highlighted {
+    background-color: "yellow";
+}
+
+.reveal {
+    cursor: pointer;
+}
+
+.reversed-input {
+    display: flex;
+    flex-direction: row-reverse;
+}

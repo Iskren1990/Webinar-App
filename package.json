@@ -6,7 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
-    "start-dev": "nodemon index"
+    "start-dev": "nodemon index",
+    "postinstall": "cd ./public && npm install",
+    "install-dev": "npm install --only=dev",
+    "install-server": "npm install",
+    "install-client": "npm run postinstall",
+    "local-install": "npm run install-server && npm run install-client",
+    "prod-install": "npm run install-server && npm run install-dev && npm run install-client"
   },
   "author": "Me",
   "license": "ISC",
@@ -16,7 +22,6 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.11",
     "socket.io": "^3.0.4"

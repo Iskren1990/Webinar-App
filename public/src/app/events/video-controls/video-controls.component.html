@@ -1,0 +1,24 @@
+<div class="controls" click-stop-propagation *ngIf="!isDisabled">
+    <button class="video-btn btn" title="Play/Pause" #video type="button" (click)="playPause()">
+        <i class="fas" [ngClass]="[isPaused?'fa-pause':'fa-play']"></i></button>
+
+    <button class="video-btn btn" title="Mute" #sound type="button" (click)="mute()">
+        <i class="fas" [ngClass]="[isMuted?'fa-volume-mute':'fa-volume-up']"></i></button>
+
+    <button *ngIf="isOwner" class="video-btn btn" title="Share Screen" type="button" (click)="shareScreenFn()">
+        <i class="fas fa-desktop"></i></button>
+
+    <button *ngIf="isPiPEnabled" class="video-btn btn" title="Picture in Picture" type="button"
+        (click)="pictureInPicture()">
+        <i class="fas fa-external-link-alt"></i></button>
+
+    <button class="video-btn btn" title="Full Screen" type="button" (click)="fullScreen()">
+        <i class="fas fa-expand"></i></button>
+
+    <button *ngIf="isOwner" class="video-btn btn" title="End Video Broadcast" type="button" (click)="stopAll()">
+        <i class="fas fa-sign-out-alt"></i></button>
+</div>
+
+<div class="controls" click-stop-propagation *ngIf="isDisabled">
+    You have ended the session
+</div>
