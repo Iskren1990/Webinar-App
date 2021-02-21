@@ -20,7 +20,3 @@ export const environment = {
     ]
   }
 };
-
-
-// apiUrl: "https://dodo-hosting.herokuapp.com/api",
-// socketUrl: "https://dodo-hosting.herokuapp.com",

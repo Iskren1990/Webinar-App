@@ -8,6 +8,7 @@ module.exports = {
             emailUsed: "Email is already taken, please use another",
             notEqualPass: "Both passwords must match",
             notLogged: "You need to be logged in.",
+            loggedUser: "You are already logged in.",
         },
         inputErr: {
             wrongLength: (field = "Field", limit = "the minimum") => `${field} should be more than ${limit} characters.`,

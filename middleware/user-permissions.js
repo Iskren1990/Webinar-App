@@ -12,9 +12,9 @@ function guestUserStop(req, res, next) {
 }
 
 function loggedUserStop(req, res, next) {
-
+    
     if (req.user.isLogged === true) {
-        res.status(400).json(req.user);
+        res.status(400).json({message: errorMsg.userErr.loggedUser });
         return;
     }
 
