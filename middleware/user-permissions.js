@@ -14,7 +14,7 @@ function guestUserStop(req, res, next) {
 function loggedUserStop(req, res, next) {
 
     if (req.user.isLogged === true) {
-        res.status(400).json();
+        res.status(400).json(req.user);
         return;
     }
 
