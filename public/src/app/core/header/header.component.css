@@ -5,6 +5,7 @@
 
 .display {
     display: inherit;
+    flex-direction: column;
 }
 
 .font {
