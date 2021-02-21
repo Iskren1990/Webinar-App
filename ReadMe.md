@@ -51,7 +51,23 @@ To get a local copy up and running follow these simple example steps.
    :hash:  `` git clone https://github.com/Iskren1990/event-hosting.git ``
    
 
- :two: Install NPM packages
+ :two: Change the following variables located in " public\src\environments\environment.prod.ts "
+
+   from:
+
+     apiUrl: "https://dodo-hosting.herokuapp.com/api",
+     socketUrl: "https://dodo-hosting.herokuapp.com", 
+
+   to: 
+
+     apiUrl: "http://localhost:3000/api",
+     socketUrl: "http://localhost:3000",
+
+Note: Port 3000 should not be in use. To validate follow the instructions bellow.
+
+To use local MongoDB change " DB_NAME ", " DB_PASSWORD " and "DB_UNAME " located in " /config/.env ".
+ 
+ :thre: install NPM packages
 
 In the root folder run: 
 
