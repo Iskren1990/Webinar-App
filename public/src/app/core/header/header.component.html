@@ -10,7 +10,7 @@
             <li [ngClass]='[isDropped?"show nav-list":""]' class="nav-item">
                 <a class="nav-link" routerLink="/about">About Us</a>
             </li>
-            <div class="display" *ngIf="!isLogged">
+            <div class="phone" *ngIf="!isLogged">
                 <li  class="nav-item">
                     <a class="nav-link" routerLink="/user/login">Login</a>
                 </li>
