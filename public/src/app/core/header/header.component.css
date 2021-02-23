@@ -3,9 +3,9 @@
     max-width: 20vw;
 }
 
+.phone,
 .display {
     display: inherit;
-    flex-direction: column;
 }
 
 .font {
@@ -22,4 +22,16 @@
 .nav-user-name {
     flex-basis: 100%;
     text-align: center;
+}
+
+@media all and (max-width: 770px) {
+    .phone {
+        flex-direction: column;
+    }
+}
+
+@media all and (max-width: 830px) {
+    .display {
+        flex-direction: column;
+    }
 }
