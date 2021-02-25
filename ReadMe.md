@@ -65,7 +65,7 @@ To get a local copy up and running follow these simple example steps.
 
 Note: Port 3000 should not be in use. To validate follow the instructions bellow.
 
-To use local MongoDB change " DB_NAME ", " DB_PASSWORD " and "DB_UNAME " located in " /config/.env ".
+To use local MongoDB change "DB_NAME", "DB_PASSWORD" and "DB_UNAME" located in "/config/.env".
  
  :thre: install NPM packages
 
